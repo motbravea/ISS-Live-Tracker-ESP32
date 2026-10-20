@@ -1,0 +1,6 @@
+{
+  "checks_passed": 10,
+  "scope": "Contrôles logiciels sur ordinateur avec interfaces matérielles remplacées.",
+  "hardware_tested": false,
+  "live_api_tested": false
+}
