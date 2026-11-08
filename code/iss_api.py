@@ -72,8 +72,15 @@ def parse_position(payload):
         raise ValueError("Champ iss_position absent")
 
     try:
-        latitude = float(position["latitude"])
-        longitude = float(position["longitude"])
+        latitude_brute = position["latitude"]
+        longitude_brute = position["longitude"]
+
+        # Les booleens ne sont pas des coordonnees valides.
+        if isinstance(latitude_brute, bool) or isinstance(longitude_brute, bool):
+            raise ValueError("Coordonnees booleennes invalides")
+
+        latitude = float(latitude_brute)
+        longitude = float(longitude_brute)
     except (KeyError, TypeError, ValueError):
         raise ValueError("Coordonnees invalides")
 
