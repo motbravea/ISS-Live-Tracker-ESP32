@@ -1,6 +1,8 @@
 {
   "checks_passed": 10,
-  "scope": "Contrôles logiciels sur ordinateur avec interfaces matérielles remplacées.",
-  "hardware_tested": false,
-  "live_api_tested": false
+  "checks_failed": 0,
+  "scope": "Contrôles logiciels sur ordinateur avec interfaces matérielles simulées.",
+  "date_verification": "2026-11-08",
+  "hardware_tested_by_this_suite": false,
+  "live_api_tested_by_this_suite": false
 }
