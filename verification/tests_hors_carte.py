@@ -94,10 +94,12 @@ class Checks(unittest.TestCase):
             screen=Screen()
             display.draw_map(screen)
             display.draw_marker(screen,x,y)
-            for offset in range(-2,3):
-                for yy in (y+offset,y-offset):
-                    if 0<=yy<64:
-                        self.assertEqual(screen.image.getpixel(((x+offset)%128,yy)),1)
+            # Deux diagonales en X, sans rebouclage artificiel aux bords.
+            for offset in range(-3, 4):
+                for px, py in ((x + offset, y + offset),
+                               (x + offset, y - offset)):
+                    if 0 <= px < 128 and 0 <= py < 64:
+                        self.assertEqual(screen.image.getpixel((px, py)), 1)
     def test_refresh_erases_old_marker(self):
         first,fresh=Screen(),Screen()
         display.update_display(first,45.5017,-73.5673)
